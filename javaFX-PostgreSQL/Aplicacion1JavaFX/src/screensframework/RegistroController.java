@@ -149,7 +149,8 @@ public class RegistroController implements Initializable, ControlledScreen {
             int n = estado.executeUpdate();
 
             if (n > 0) {
-                JOptionPane.showMessageDialog(null, "Registro realizado correctamente");
+
+                JOptionPane.showMessageDialog(null, "Registro exitoso");
             }
             
             estado.close();
