@@ -40,7 +40,7 @@ public class RegistroController implements Initializable, ControlledScreen {
                 "Hombre",
                 "Mujer"
                 );
-        cbAddsex.setItems(Options);
+        cbAddsex.setItems(options);
         
         // Escuchador para comprobar si pierdo el foco
         tfAddUser.focusedProperty().addListener(new ChangeListener<Boolean>() {
@@ -147,10 +147,10 @@ public class RegistroController implements Initializable, ControlledScreen {
             cbAddsex.setValue("");
             
             int n = estado.executeUpdate();
-            
+
             if (n > 0) {
-                JOptionPane.showMessageDialog(null, "Fallo el registro");
-            } 
+                JOptionPane.showMessageDialog(null, "Registro exitoso");
+            }
             
             estado.close();
             

@@ -4,6 +4,7 @@ import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.PreparedStatement;
 import java.util.ResourceBundle;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
@@ -164,7 +165,7 @@ public class ProductoController implements Initializable, ControlledScreen {
             while(rs.next()){
                 //Iterate Row
                 ObservableList<String> row = FXCollections.observableArrayList();
-                for(int i = 1 ; i <= rs.getMetaData().getColumnCount()+1; i++){
+                for(int i = 1 ; i <= rs.getMetaData().getColumnCount(); i++){
                     //Iterate Column
                     row.add(rs.getString(i));
                 }
@@ -265,7 +266,7 @@ public class ProductoController implements Initializable, ControlledScreen {
         
         try {
             conexion = DBConnection.connect();
-            String sql = "INSERT INTO product "
+            String sql = "INSERT INTO producto "
                     + " (nombre_producto, precio, idcategoria, idmarca) "
                     + " VALUES (?, ?, ?, ?)";
             PreparedStatement estado = conexion.prepareStatement(sql);
@@ -340,7 +341,7 @@ public class ProductoController implements Initializable, ControlledScreen {
 
                 PreparedStatement estado = conexion.prepareStatement(sql);
 
-                estado.executeUpdate();
+                int n = estado.executeUpdate();
 
                 if (n > 0) {
                     tablaProducto.getColumns().clear();
