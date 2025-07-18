@@ -44,7 +44,7 @@ public class Validaciones {
         
         if (!datos.isEmpty()) {
             if (!m.find()) {
-                JOptionPane.showMessageDialog(null, "La direccion de correo es correcta");
+                JOptionPane.showMessageDialog(null, "La direccion de correo es incorrecta");
                 return false;
             }
         }
@@ -68,7 +68,7 @@ public class Validaciones {
     /****** SOLO NUMEROS *********/
     public boolean soloNumeros(String datos) {
         
-        p = Pattern.compile("^[0-9A-Z]*$");
+        p = Pattern.compile("^[0-9]*$");
         m = p.matcher(datos); 
         if (!datos.isEmpty()) {
             if (!m.find()) {
